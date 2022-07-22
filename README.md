@@ -91,8 +91,8 @@ $ man man
 $ sudo apt show xrdp
 -----------------------------------
 
-$ sudo apt install -y xrdp
-$ sudo apt install -y xfce4
+$ sudo apt-get install -y xrdp
+$ sudo apt-get  install -y xfce4
 
 Description: Meta-package for the Xfce Lightweight Desktop Environment
  Xfce is a lightweight desktop environment for unix-like operating systems.
@@ -101,7 +101,7 @@ Description: Meta-package for the Xfce Lightweight Desktop Environment
  This package is a metapackage; it depends on the core packages of the Xfce4
  desktop environment and recommends some extra Xfce4 packages.
 
-sudo apt install -y xfce4-goodies
+sudo apt-get install -y xfce4-goodies
 
 Description: enhancements for the Xfce4 Desktop Environment
  The "Goodies for Xfce" project includes additional software and artwork that
@@ -113,6 +113,7 @@ sudo cp /etc/xrdp/xrdp.ini /etc/xrdp/xrdp.ini.bak
 $ file /etc/xrdp/xrdp.ini
 /etc/xrdp/xrdp.ini: Microsoft Windows Autorun file
 
+// to check what port is associated with what service
 $ cat /etc/services | grep 3389
 ms-wbt-server   3389/tcp
 
@@ -121,9 +122,12 @@ ms-wbt-server   3389/tcp
 // transforming text /g globally
 sudo sed -i 's/3389/3390/g' /etc/xrdp/xrdp.ini
 
-echo xfce4-session > ~/.xsession
+// Automatically creates a file
+$ echo xfce4-session > ~/.xsession
 
-sudo vim  /etc/xrdp/startwm.sh
+
+// - Vi IMproved, a programmer's text editor
+$ sudo vim  /etc/xrdp/startwm.sh
 
 #test -x /etc/X11/Xsession && exec /etc/X11/Xsession
 #exec /bin/sh /etc/X11/Xsession
@@ -132,7 +136,8 @@ sudo vim  /etc/xrdp/startwm.sh
 startxfce4
 
 
-sudo /etc/init.d/xrdp start OR $ sudo service xrdp start
+$ sudo /etc/init.d/xrdp start OR $ sudo service xrdp start
+// anyways /etc/init.d is the directory containing System V init scripts.
 
 WSL Trick: no need to jump and start RDP app
 
