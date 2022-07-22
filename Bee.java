@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.Random;
 /**
  * Write a description of class bee here.
  * 
@@ -9,22 +9,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bee extends Actor
 {
 
+    private boolean beeActive = false;
+    private Random random = new Random();
     /**
      * Constructor for objects of class Bee.
      * 
      */
     public Bee()
     {    
-       
+
         prepare();
     }
-    
-    
-     private void prepare()
+
+    private void prepare()
     {
 
         setImage("bee.png");
-     
+
+
     }
 
     /**
@@ -34,11 +36,24 @@ public class Bee extends Actor
     public void act()
     {
         // Add your action code here
-        move(1);
-        
+
+        // a negative value will move backwards
+        move(-1);
+
         if (isAtEdge()) {
-            getWorld().removeObject(this);
+            appearOnOtherSide();
         }
-        
+
     }
+
+    private void appearOnOtherSide() {
+
+        if (getX() == 0) {
+            int height = Math.abs(random.nextInt() % getWorld().getHeight() / 2 + 500);
+            setLocation(2000, height); 
+
+        }
+
+    }
+
 }

@@ -18,30 +18,29 @@ public class Texture extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1920, 1080, 1); 
         prepare();
-    }
-    
-    
 
-    
+        //classes listed first in the parameter list will appear on top 
+        //of all objects of classes listed later
+        setPaintOrder(Bee.class,Tree.class,Cloud.class);
+    }
+
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
-        Tree tree = new Tree();
-        addObject(tree,957,453);
 
-        Bee bee = new Bee();
-        addObject(bee,0, 800);
+        addObject(new Tree(),957,453);
+        addObject(new Bee(),0, 800);
+
+        prepareForCloud();
         
-        
-        Cloud cloud1 = new Cloud();
-        Cloud cloud2 = new Cloud();
-        Cloud cloud3 = new Cloud();
-        addObject(cloud1, 0, 0);
-        addObject(cloud2, 0, 250);
-        addObject(cloud3, 0, 500);
-        
+    }
+
+    private void prepareForCloud() {
+        addObject(new Cloud1(),0,0);
+        addObject(new Cloud2(), 0, 150);
+        addObject(new Cloud3(), 0, 300);
     }
 }
