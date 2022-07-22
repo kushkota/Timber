@@ -2,6 +2,8 @@
 
 # Development
 
+## Running greenfoot- Java IDE (GUI apps) in WSL2
+
 ```python
 
 # clone a repository 
@@ -13,9 +15,10 @@ greenfoot project.greefoot
 
 ```
 
-```python3
 
 # Investigation
+
+```python3
 
 This investigaton will  make your head spin!
 
@@ -67,7 +70,7 @@ Description: A simple but powerful Java IDE.
 Windows(RDP) client ------------> server WSL2
 
 Usign more specialized APT tools like apt-get: - APT package handling utility -- command-line interface
-$ sudo apt update && sudo apt -y upgrade
+$ sudo apt-get update && sudo apt-get -y upgrade
 
 update - Retrieve new lists of packages
 upgrade - Perform an upgrade
